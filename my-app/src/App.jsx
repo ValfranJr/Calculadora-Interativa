@@ -23,6 +23,26 @@ function App() {
       }
   }
   useEffect(() => {
+    const handleKey = (e) => {
+      const teclasValidas = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '/', '%', '.', 'Enter', 'Backspace'];
+
+      if (teclasValidas.includes(e.key)) {
+        if (e.key === 'Enter') {
+          onClickButton('=');
+        } else if (e.key === 'Backspace') {
+          onClickButton('←');
+        } else {
+          onClickButton(e.key);
+        }
+      }
+    };
+
+  window.addEventListener('keydown', handleKey);
+  return () => window.removeEventListener('keydown', handleKey);
+}, [onClickButton]); // opcional incluir como dependência
+
+
+  useEffect(() => {
     if(darkMode){
       document.documentElement.classList.add('dark')
       document.documentElement.classList.remove('light')
