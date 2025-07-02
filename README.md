@@ -44,5 +44,5 @@ npm run dev
 3. **Acesse o navegador**
 
 ```bash
-http://localhost:3000
+http://localhost:5173
 ```
